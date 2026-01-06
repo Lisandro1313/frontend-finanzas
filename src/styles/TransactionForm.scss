@@ -1,0 +1,79 @@
+.transaction-form {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+  h2 {
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+    font-size: 1.3rem;
+  }
+
+  form {
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-group {
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #374151;
+        font-size: 0.9rem;
+      }
+
+      input, select, textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 2px solid #e5e7eb;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        font-family: inherit;
+        transition: border-color 0.2s;
+
+        &:focus {
+          outline: none;
+          border-color: #667eea;
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 60px;
+      }
+    }
+
+    .submit-btn {
+      padding: 0.75rem 2rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 0.5rem;
+
+      &:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .transaction-form form .form-row {
+    grid-template-columns: 1fr;
+  }
+}

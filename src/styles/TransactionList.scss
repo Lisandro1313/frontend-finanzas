@@ -1,0 +1,140 @@
+.transaction-list {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+  h2 {
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+    font-size: 1.3rem;
+  }
+
+  .empty-message {
+    text-align: center;
+    color: #9ca3af;
+    padding: 3rem;
+    font-size: 1.1rem;
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+      background: #f9fafb;
+      
+      th {
+        padding: 0.875rem;
+        text-align: left;
+        font-weight: 600;
+        color: #374151;
+        font-size: 0.9rem;
+        border-bottom: 2px solid #e5e7eb;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #f3f4f6;
+        transition: background 0.2s;
+
+        &:hover {
+          background: #f9fafb;
+        }
+
+        td {
+          padding: 1rem 0.875rem;
+          color: #4b5563;
+          font-size: 0.95rem;
+
+          &.amount {
+            font-weight: 600;
+            color: #1f2937;
+          }
+
+          input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 0.9rem;
+
+            &:focus {
+              outline: none;
+              border-color: #667eea;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 0.5rem;
+
+    button {
+      padding: 0.4rem 0.6rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+
+      &.edit-btn {
+        background: #dbeafe;
+        
+        &:hover {
+          background: #bfdbfe;
+          transform: scale(1.1);
+        }
+      }
+
+      &.delete-btn {
+        background: #fee2e2;
+        
+        &:hover {
+          background: #fecaca;
+          transform: scale(1.1);
+        }
+      }
+
+      &.save-btn {
+        background: #d1fae5;
+        
+        &:hover {
+          background: #a7f3d0;
+          transform: scale(1.1);
+        }
+      }
+
+      &.cancel-btn {
+        background: #f3f4f6;
+        
+        &:hover {
+          background: #e5e7eb;
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .transaction-list {
+    padding: 1rem;
+
+    table {
+      font-size: 0.85rem;
+
+      th, td {
+        padding: 0.5rem;
+      }
+    }
+  }
+}
