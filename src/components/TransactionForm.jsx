@@ -24,7 +24,7 @@ function TransactionForm({ type, onSuccess }) {
       const token = localStorage.getItem('token')
       const endpoint = type === 'venta' ? '/ventas' : '/gastos'
       
-      const response = await fetch(`http://localhost:3001${endpoint}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_FINANZAS_URL || 'http://localhost:3001'}${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

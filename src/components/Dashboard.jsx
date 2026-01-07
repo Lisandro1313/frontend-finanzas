@@ -24,8 +24,8 @@ function Dashboard({ user, onLogout }) {
       }
 
       const [ventasRes, gastosRes] = await Promise.all([
-        fetch(`http://localhost:3001/ventas?periodo=${periodo}`, { headers }),
-        fetch(`http://localhost:3001/gastos?periodo=${periodo}`, { headers })
+        fetch(`${import.meta.env.VITE_API_FINANZAS_URL || 'http://localhost:3001'}/ventas?periodo=${periodo}`, { headers }),
+        fetch(`${import.meta.env.VITE_API_FINANZAS_URL || 'http://localhost:3001'}/gastos?periodo=${periodo}`, { headers })
       ])
 
       if (ventasRes.ok && gastosRes.ok) {

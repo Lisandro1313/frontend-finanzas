@@ -18,7 +18,7 @@ function Login({ onLoginSuccess }) {
 
     try {
       const endpoint = isLogin ? '/auth/login' : '/auth/register'
-      const response = await fetch(`http://localhost:3002${endpoint}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_AUTH_URL || 'http://localhost:3002'}${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

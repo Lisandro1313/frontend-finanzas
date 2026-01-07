@@ -42,7 +42,7 @@ function TransactionList({ transactions, type, onUpdate }) {
       const token = localStorage.getItem('token')
       const endpoint = type === 'venta' ? '/ventas' : '/gastos'
       
-      const response = await fetch(`http://localhost:3001${endpoint}/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_FINANZAS_URL || 'http://localhost:3001'}${endpoint}/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
