@@ -9,11 +9,13 @@ function Login({ onLoginSuccess }) {
     nombre: ''
   })
   const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
   const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
+    setSuccess('')
     setLoading(true)
 
     try {
@@ -29,7 +31,14 @@ function Login({ onLoginSuccess }) {
       const data = await response.json()
 
       if (response.ok) {
-        onLoginSuccess(data.token)
+        if (!isLogin) {
+          setSuccess('Usuario creado exitosamente!')
+          setTimeout(() => {
+            onLoginSuccess(data.token)
+          }, 1500)
+        } else {
+          onLoginSuccess(data.token)
+        }
       } else {
         setError(data.error || 'Error al procesar la solicitud')
       }
@@ -114,6 +123,7 @@ function Login({ onLoginSuccess }) {
           </div>
 
           {error && <div className="error-message">{error}</div>}
+          {success && <div className="success-message">{success}</div>}
 
           <button type="submit" className="submit-btn" disabled={loading}>
             {loading ? 'Procesando...' : (isLogin ? 'Entrar' : 'Crear cuenta')}
